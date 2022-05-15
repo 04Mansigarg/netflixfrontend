@@ -1,0 +1,125 @@
+.row1 {
+  display: flex;
+  justify-content: space-between;
+  background-color: black;
+  color: white;
+  padding-left: 5px;
+  padding-top: 10px;
+  padding-right: 10px;
+}
+.row2 {
+  display: flex;
+  justify-content: left;
+  background-color: black;
+  color: white;
+  padding-left: 10px;
+ 
+}
+.row3 {
+  display: flex;
+  justify-content: left;
+  background-color: black;
+  color: white;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 10px;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+.row2 * {
+  margin-right: 10px;
+  padding: 2px;
+  font-size: 20px;
+}
+.row3 * {
+  margin-right: 7px;
+  padding: 2px;
+  font-size: 20px;
+}
+
+.cert {
+  border: 1px solid white;
+}
+
+.row1 * {
+  font-size: 1.7em;
+  cursor: pointer;
+}
+.popup_container img {
+  width: 450px;
+
+  display: block;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+}
+.rowImage {
+  object-fit: contain;
+  width: 100%;
+  cursor: pointer;
+  transition: transform 450ms;
+  border:1px solid black;
+  border-radius:5px;
+}
+@media screen and (max-width:500px){
+  .row1 {
+    padding-left: 10px;
+    padding-top: 5px;
+    padding-right: 10px;
+  }
+  .row2 {
+    padding-left: 5px;
+    padding-left: 5px;
+  }
+  .row3 {
+    display: flex;
+    justify-content: left;
+    background-color: black;
+    color: white;
+    padding-top: 5px;
+    padding-bottom: 10px;
+    padding-left: 10px;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+  }
+  .row2 * {
+    margin-right: 5px;
+    padding: 2px;
+    font-size: 9px;
+  }
+  .row3 * {
+    margin-right: 7px;
+    padding: 2px;
+    font-size: 10px;
+  }
+  
+  .cert {
+    border: 1px solid white;
+  }
+  
+  .row1 * {
+    font-size: 12px;
+    cursor: pointer;
+  }
+  .popup_container img {
+    width: 450px;
+  
+    display: block;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+  }
+  .rowImage {
+    object-fit: contain;
+    width: 100%;
+    cursor: pointer;
+    transition: transform 450ms;
+    border:1px solid black;
+    border-radius:5px;
+  }
+  .popup_container img{
+    width: 100%;
+  }
+  .itemImg{
+    width: 200px;
+  }
+  
+}

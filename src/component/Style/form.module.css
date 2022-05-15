@@ -1,0 +1,115 @@
+.logo img {
+  height: 50px;
+  position: absolute;
+  left: 0;
+  margin-left: 50px;
+  margin-top: 20px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.header .signbtn {
+  right: 50px;
+  top: 30px;
+  position: absolute;
+  text-decoration: none;
+  color: gray;
+  font-size: 1.2em;
+  font-weight: 600;
+}
+
+.middlebox form {
+  display: flex;
+  flex-direction: column;
+}
+.middlebox {
+  width: 400px;
+  margin-left: auto;
+  margin-top: 10%;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  text-align: left;
+}
+
+.middlebox form input {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  border: 1px solid gray;
+  font-size: 1.2em;
+  height: 40px;
+}
+
+.plandetails {
+  display: flex;
+  justify-content: space-between;
+  background-color: #f4f4f4;
+  padding: 20px;
+}
+.plandetails p {
+  margin: 2px;
+}
+.changebtn {
+  margin-top: 10px;
+}
+.changebtn a {
+  text-decoration: none;
+  font-weight: 500;
+  color: #0071eb;
+}
+
+.price {
+  font-weight: 600;
+}
+
+.disclaimer {
+  font-size: small;
+}
+.disclaimer a {
+  text-decoration: none;
+  color: #0071eb;
+}
+
+.membtn {
+  width: 100%;
+  height: 60px;
+
+  border-radius: 5px;
+  padding: 10px;
+  background-color: red;
+  border: 0;
+  color: white;
+  font-size: 1.3em;
+  margin-top: 20px;
+  cursor: pointer;
+}
+
+.checkbox {
+  display: flex;
+  justify-content: left;
+}
+
+.checkbox input {
+  margin-right: 5px;
+  width: 25px;
+}
+
+@media screen and (max-width: 800px) {
+  .logo img {
+    height: 30px;
+  }
+  .header .signbtn {
+    top: 20px;
+    position: absolute;
+  }
+  .middlebox {
+    margin-top: 30%;
+    width: 350px;
+  }
+  .btnbox {
+    width: 300px;
+  }
+}

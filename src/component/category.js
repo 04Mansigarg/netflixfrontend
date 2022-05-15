@@ -1,0 +1,2 @@
+export const category = ["Indian", "Romance", "Horror", "Docuseries", "Us", "British", "Europeon"]
+export const category1 = ["Bollywood", "Hollywood", "Anime", "Award Winning", "Action", "Dramas", "Comedy"]

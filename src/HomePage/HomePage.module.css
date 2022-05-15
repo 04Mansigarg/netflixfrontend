@@ -1,0 +1,45 @@
+.home{
+    background-color: black;
+}
+.tvShows{
+  background-color: black;
+}
+.mainRow {
+    color: #fff;
+    margin-left: 5em;
+  }
+  
+  .rowImages {
+    display: flex;
+    overflow-y: hidden;
+    overflow-x: scroll;
+    column-gap: 0.5em;
+  }
+  
+  .rowImages::-webkit-scrollbar {
+    display: none;
+  }
+ 
+  .mainHeading{
+    font-size: 22px;
+  }
+  @media screen and (max-width: 500px){
+    .mainRow {
+      color: #fff;
+      margin-left: 1.5em;
+    }
+    
+    .rowImages {
+      display: flex;
+      overflow-y: hidden;
+      overflow-x: scroll;
+      column-gap: 0.5em;
+    }
+    
+    .rowImages::-webkit-scrollbar {
+      display: none;
+    }
+    .mainHeading{
+      font-size: 18px;
+    }
+  }

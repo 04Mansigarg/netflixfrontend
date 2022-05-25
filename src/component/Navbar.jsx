@@ -7,7 +7,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import HelpOutlineIcon from "@mui/icons-material/HelpOutline";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
-import { auth, search } from "../Redux-Store/Home/Action";
+import { search, userlogout } from "../Redux-Store/Home/Action";
 import DropDownMenu from "./DropDown"
 
 const Navbar = () => {
@@ -55,7 +55,7 @@ const Navbar = () => {
             <li className={styles.menuItems}>My List</li>
           </ul>
         </span>
-        <DropDownMenu/>
+        <DropDownMenu />
         <span className={styles.span2}>
           <ul>
             <li>
@@ -154,7 +154,7 @@ const Navbar = () => {
                   <div
                     onClick={() => {
                       navigate("/");
-                      dispatch(auth(false))
+                      dispatch(userlogout(""))
                     }}
                     className={styles.signout}
                   >

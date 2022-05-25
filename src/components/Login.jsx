@@ -3,7 +3,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import styles from "../css/Login.module.css";
-import { auth, get_signin_error, get_signin_loading } from "../Redux-Store/Home/Action";
+import { get_signin_error, get_signin_loading, userlogin } from "../Redux-Store/Home/Action";
 
 const Login = () => {
   const initState = {
@@ -11,11 +11,11 @@ const Login = () => {
     password: ""
   }
   const [formData, setFormData] = React.useState(initState)
-  // const userData = useSelector((state) => state.userData)
   const { signin_loading, signin_error } = useSelector((state) => ({
     signin_loading: state.signin_loading,
     signin_error: state.signin_error
   }))
+
   const dispatch = useDispatch()
 
 
@@ -43,11 +43,12 @@ const Login = () => {
     })
       .then((res) => res.json())
       .then((res) => {
-        JSON.stringify(res)
         setFormData(initState)
 
         if (res.token) {
-          dispatch(auth(true))
+          dispatch(userlogin(res.token))
+          JSON.stringify(res.token)
+          localStorage.setItem("token", res.token)
           dispatch(get_signin_loading(false))
           navigate("/homepage")
         }
@@ -57,15 +58,15 @@ const Login = () => {
         console.log(err)
         navigate("/")
         dispatch(get_signin_error(false))
-       
+
       })
 
   }
 
-  if(signin_loading) return <div style={{ width: "100px", margin: "auto" }}> <CircularProgress /></div>
- else if (signin_error)  return <h1>Something Went Wrong</h1> 
-  else 
-   return (
+  if (signin_loading) return <div style={{ width: "100px", margin: "auto" }}> <CircularProgress /></div>
+  else if (signin_error) return <h1>Something Went Wrong</h1>
+  else
+    return (
       <div className={styles.container}>
         <div className={styles.logo}>
           <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1200px-Netflix_2015_logo.svg.png" alt="" />

@@ -1,5 +1,5 @@
 
-import { AUTH, CATEGORY, EMAIL, ENDCATEGORY, ERROR, GETUserDATA, GET_ANIME, GET_AWARDWINNING, GET_BOLLYWOOD, GET_DOCUSERIESSHOWS, GET_HOLLYWOOD, GET_HORRORTVSHOWS, GET_INDIANTVSHOWS, Get_MOVIES, GET_ROMANCETVSHOWS, Get_TVSHOWS, LOADING, MAINITEM, PASSWORD, SEARCH, SEARCHDATA, SIGNIN_ERROR, SIGNIN_LOADING} from "./ActionTypes"
+import { CATEGORY, EMAIL, ENDCATEGORY, ERROR, GETUserDATA, GET_ANIME, GET_AWARDWINNING, GET_BOLLYWOOD, GET_DOCUSERIESSHOWS, GET_HOLLYWOOD, GET_HORRORTVSHOWS, GET_INDIANTVSHOWS, Get_MOVIES, GET_ROMANCETVSHOWS, Get_TVSHOWS, LOADING, MAINITEM, PASSWORD, SEARCH, SEARCHDATA, SIGNIN_ERROR, SIGNIN_LOADING, USERLOGIN, USERLOGOUT} from "./ActionTypes"
 export const get_loading = () => {
     return {
         type: LOADING
@@ -102,10 +102,16 @@ export const get_userData = (data) => {
         payload: data
     }
 }
-export const auth = (data) => {
+export const userlogin = (data) => {
     return {
-        type: AUTH,
-        payload: data
+        type: USERLOGIN,
+        payload:data
+    }
+}
+export const userlogout = (data) => {
+    return {
+        type: USERLOGOUT,
+        payload:data
     }
 }
 export const main_item = (data) => {

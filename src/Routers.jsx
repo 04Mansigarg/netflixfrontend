@@ -1,5 +1,5 @@
 import React from "react";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import { LandingPage } from "./LandingPage/LandingPage";
 import { Payment } from "./component/payment";
 import { Paymentform } from "./component/paymentform";
@@ -16,8 +16,19 @@ import { ItemComponent } from "./component/ItemComponent";
 import { SearchComponent } from "./Search/SearchComponent";
 import { PrivateRoutes } from "./PrivateRoutes";
 import { ErrorPage } from "./Search/ErrorPage";
+import { useSelector } from "react-redux";
 
 export const Routers = () => {
+  const isUserLoggedIn = useSelector((state) => state.auth.isUserLoggedIn)
+  const navigate = useNavigate()
+  React.useEffect(() => {
+    if (isUserLoggedIn) {
+      navigate("/homepage")
+    }
+    else {
+      navigate("/login")
+    }
+  }, [isUserLoggedIn])
   return (
     <div>
       <Routes>

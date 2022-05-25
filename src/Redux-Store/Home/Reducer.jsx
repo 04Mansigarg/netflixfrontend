@@ -1,12 +1,21 @@
 
-import { AUTH, CATEGORY, EMAIL, ENDCATEGORY, ERROR, GETUserDATA, GET_ANIME, GET_AWARDWINNING, GET_BOLLYWOOD, GET_DOCUSERIESSHOWS, GET_HOLLYWOOD, GET_HORRORTVSHOWS, GET_INDIANTVSHOWS, Get_MOVIES, GET_ROMANCETVSHOWS, Get_TVSHOWS, LOADING, MAINITEM, PASSWORD, SEARCH, SEARCHDATA, SIGNIN_ERROR, SIGNIN_LOADING, SIGNIN_LOGIN } from "./ActionTypes"
+import { CATEGORY, EMAIL, ENDCATEGORY, ERROR, GETUserDATA, GET_ANIME, GET_AWARDWINNING, GET_BOLLYWOOD, GET_DOCUSERIESSHOWS, GET_HOLLYWOOD, GET_HORRORTVSHOWS, GET_INDIANTVSHOWS, Get_MOVIES, GET_ROMANCETVSHOWS, Get_TVSHOWS, LOADING, MAINITEM, PASSWORD, SEARCH, SEARCHDATA, SIGNIN_ERROR, SIGNIN_LOADING, USERLOGIN, USERLOGOUT } from "./ActionTypes"
 
-
+const getValue = (key) => {
+    try {
+        const value = localStorage.getItem(key)
+        const parsedValue = JSON.parse(value)
+        return parsedValue
+    }
+    catch(e) {
+        return e.message
+    }
+}
 const init = {
     loading: false,
     error: false,
-    signin_loading:false,
-    signin_error:false,
+    signin_loading: false,
+    signin_error: false,
     indian_tv: [],
     horror_tv: [],
     romance_tv: [],
@@ -20,12 +29,15 @@ const init = {
     email: "",
     password: "",
     userData: [],
-    auth: false,
+    auth: {
+        isUserLoggedIn: getValue("token")? true : false,
+        token: getValue("token")
+    },
     mainItem: "",
     categoryItem: "",
     endCategoryItem: "",
     search_item: "",
-    searchData:[]
+    searchData: []
 
 
 }
@@ -34,115 +46,129 @@ export const reducer = (state = init, { type, payload }) => {
 
     switch (type) {
         case LOADING:
-            return{
+            return {
                 ...state,
-                loading:true
+                loading: true
             }
-            case ERROR:
-            return{
+        case ERROR:
+            return {
                 ...state,
-                loading:false,
-                error:true
+                loading: false,
+                error: true
             }
-            case SIGNIN_LOADING:
-            return{
+        case SIGNIN_LOADING:
+            return {
                 ...state,
-                signin_loading:payload
-                
+                signin_loading: payload
+
             }
-            case SIGNIN_ERROR:
-            return{
+        case SIGNIN_ERROR:
+            return {
                 ...state,
-                signin_error:payload
+                signin_error: payload
             }
         case GET_INDIANTVSHOWS:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 indian_tv: payload
             }
         case GET_ROMANCETVSHOWS:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 romance_tv: payload
             }
         case GET_HORRORTVSHOWS:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 horror_tv: payload
             }
         case GET_DOCUSERIESSHOWS:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 docuseries_tv: payload
             }
         case GET_ANIME:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 anime: payload
             }
         case GET_AWARDWINNING:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 awardwinning: payload
             }
         case GET_BOLLYWOOD:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 bollywood: payload
             }
         case GET_HOLLYWOOD:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 hollywood: payload
             }
         case Get_TVSHOWS:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 tv_shows: payload
             }
         case Get_MOVIES:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 movies: payload
             }
         case EMAIL:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 email: payload
             }
         case PASSWORD:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 password: payload
             }
         case GETUserDATA:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 userData: payload
             }
-        case AUTH:
+        case USERLOGIN:
             return {
                 ...state,
-                loading:false,
-                auth: payload
+                auth: {
+                    ...state.auth,
+                    isUserLoggedIn: true,
+                    token: payload
+
+                }
+            }
+        case USERLOGOUT:
+            return {
+                ...state,
+                auth: {
+                    ...state.auth,
+                    isUserLoggedIn: false,
+                    token: ""
+
+                }
             }
         case MAINITEM:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 mainItem: payload
             }
         case CATEGORY:
@@ -158,13 +184,13 @@ export const reducer = (state = init, { type, payload }) => {
         case SEARCH:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 search_item: payload
             }
         case SEARCHDATA:
             return {
                 ...state,
-                loading:false,
+                loading: false,
                 searchData: payload
             }
         default: return state
@@ -173,3 +199,4 @@ export const reducer = (state = init, { type, payload }) => {
     }
 
 }
+

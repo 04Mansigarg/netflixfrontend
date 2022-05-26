@@ -153,8 +153,9 @@ const Navbar = () => {
                   <hr />
                   <div
                     onClick={() => {
-                      navigate("/");
                       dispatch(userlogout(""))
+                      localStorage.removeItem("token")
+                      navigate("/");
                     }}
                     className={styles.signout}
                   >

@@ -26,7 +26,7 @@ export const Routers = () => {
       navigate("/homepage")
     }
     else {
-      navigate("/login")
+      navigate("/")
     }
   }, [isUserLoggedIn])
   return (

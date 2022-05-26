@@ -161,7 +161,7 @@ export const reducer = (state = init, { type, payload }) => {
                 auth: {
                     ...state.auth,
                     isUserLoggedIn: false,
-                    token: ""
+                    token: payload
 
                 }
             }

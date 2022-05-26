@@ -5,6 +5,9 @@ import { Faqs } from './Faqs'
 import { Footer } from './Footer'
 
 export const LandingPage = () => {
+    React.useEffect(() => {
+        alert("Login Credential:- email: john123@gmail.com , password:12345678")
+    }, [])
     return (
         <div className={styles.landingPage}>
             <Email />
